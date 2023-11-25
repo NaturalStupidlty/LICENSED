@@ -1,4 +1,5 @@
 import cv2
+import numpy
 import argparse
 import json
 import os.path
@@ -150,13 +151,14 @@ if __name__ == "__main__":
             if car_confidence > car_threshold:
                 bounding_box = car["car"]['warpedBox']
                 bounding_box = [[int(bounding_box[i]), int(bounding_box[i + 1])] for i in range(0, len(bounding_box), 2)]
+                bounding_box = numpy.array(bounding_box, numpy.int32)
                 text = car['text'][:-2]
 
                 print(bounding_box)
                 print(text)
 
                 # Draw the bounding box
-                cv2.polylines(frame, bounding_box, True, (0, 255, 0), 2)
+                cv2.polylines(frame, [bounding_box], True, (0, 255, 0), 2)
                 # Draw the text
                 cv2.putText(frame,
                             text,

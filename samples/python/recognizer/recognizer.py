@@ -117,7 +117,7 @@ if __name__ == "__main__":
     # Initialize the engine
     ultimateAlprSdk.UltAlprSdkEngine_init(json.dumps(JSON_CONFIG))
 
-    save_path = args.assets + "/output.mp4"
+    save_path = args.assets + "/videos/output.mp4"
     output_video = cv2.VideoWriter(
         save_path,
         cv2.VideoWriter_fourcc(*'mp4v'),

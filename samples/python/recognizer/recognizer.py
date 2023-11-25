@@ -124,6 +124,8 @@ if __name__ == "__main__":
         if not is_okay:
             break
 
+        frame = cv2.resize(frame, (width, height), interpolation=cv2.INTER_AREA)
+
         result = ultimateAlprSdk.UltAlprSdkEngine_process(
             image_type,
             frame.tobytes(),

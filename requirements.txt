@@ -1,0 +1,2 @@
+Cython==3.0.5
+opencv-python==4.8.1.78

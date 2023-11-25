@@ -147,15 +147,24 @@ if __name__ == "__main__":
         car_threshold = 0.5
 
         for detection in result["plates"]:
-            car = detection["car"] if "car" in detection else detection
-            print(car)
-            if car["confidence"] > car_threshold:
-                warped_box_coords = car['warpedBox']
+            if "car" in detection:
+                car_confidence = detection["car"]["confidence"]
+                box_coordinates = detection["car"]["warpedBox"]
+                plate_text = detection['text']
+            else:
+                car_confidence = detection["confidence"]
+                box_coordinates = detection["box"]
+                plate_text = detection['text']
+
+            print("Car confidence: ", car_confidence
+                  , "Box coordinates: ", box_coordinates
+                    , "Plate text: ", plate_text)
+            if car_confidence > car_threshold:
                 bounding_box = [
-                    [int(warped_box_coords[i]), int(warped_box_coords[i + 1])]
-                    for i in range(0, len(warped_box_coords), 2)
+                    [int(box_coordinates[i]), int(box_coordinates[i + 1])]
+                    for i in range(0, len(box_coordinates), 2)
                 ]
-                text = detection['text'][:-2]
+                text = plate_text[:-2]
 
                 cv2.polylines(frame, [numpy.array(bounding_box, numpy.int32)], True, (0, 255, 0), 2)
                 cv2.putText(frame,

@@ -116,6 +116,14 @@ if __name__ == "__main__":
     # Initialize the engine
     ultimateAlprSdk.UltAlprSdkEngine_init(json.dumps(JSON_CONFIG))
 
+    save_path = args.video_path.split('.')[0] + '_output.mp4'
+    output_video = cv2.VideoWriter(
+        save_path,
+        cv2.VideoWriter_fourcc(*'mp4v'),
+        20.0,
+        (width, height)
+    )
+
     capture = cv2.VideoCapture(args.video_path)
 
     while capture.isOpened():
@@ -133,7 +141,6 @@ if __name__ == "__main__":
             0,  # stride
             1,
         )
-        #checkResult("Process", result)
 
         result = json.loads(result.json())
         car_threshold = 0.5
@@ -143,10 +150,7 @@ if __name__ == "__main__":
             if car_confidence > car_threshold:
                 bounding_box = car["car"]['warpedBox']
                 bounding_box = [int(coordinate) for coordinate in bounding_box]
-                text = car['text']
-
-                print(text)
-                print(bounding_box)
+                text = car['text'][:-2]
 
                 # Draw the bounding box
                 cv2.polylines(frame, [bounding_box], True, (0, 255, 0), 2)
@@ -159,7 +163,11 @@ if __name__ == "__main__":
                             (0, 255, 0),
                             2)
 
-        break
+        output_video.write(frame)
+
+    output_video.release()
+    capture.release()
+    cv2.destroyAllWindows()
 
     # DeInit
     ultimateAlprSdk.UltAlprSdkEngine_deInit()

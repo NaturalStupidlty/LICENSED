@@ -143,7 +143,7 @@ if __name__ == "__main__":
             if car_confidence > car_threshold:
                 bounding_box = car["car"]['warpedBox']
                 bounding_box = [int(coordinate) for coordinate in bounding_box]
-                text = car["car"]['text']
+                text = car['text']
 
                 print(text)
                 print(bounding_box)

@@ -152,8 +152,7 @@ if __name__ == "__main__":
                 box_coordinates = detection["car"]["warpedBox"]
                 plate_text = detection['text']
             else:
-                print(detection)
-                car_confidence = detection["confidence"]
+                car_confidence = 0
                 box_coordinates = detection["box"]
                 plate_text = detection['text']
 

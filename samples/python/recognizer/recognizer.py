@@ -153,7 +153,7 @@ if __name__ == "__main__":
                 text = car['text'][:-2]
 
                 # Draw the bounding box
-                cv2.polylines(frame, [bounding_box], True, (0, 255, 0), 2)
+                cv2.polylines(frame, bounding_box, True, (0, 255, 0), 2)
                 # Draw the text
                 cv2.putText(frame,
                             text,

@@ -152,6 +152,9 @@ if __name__ == "__main__":
                 bounding_box = [int(coordinate) for coordinate in bounding_box]
                 text = car['text'][:-2]
 
+                print(bounding_box)
+                print(text)
+
                 # Draw the bounding box
                 cv2.polylines(frame, bounding_box, True, (0, 255, 0), 2)
                 # Draw the text

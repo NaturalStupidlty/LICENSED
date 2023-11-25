@@ -146,6 +146,9 @@ if __name__ == "__main__":
         result = json.loads(result.json())
         car_threshold = 0.5
 
+        if "plates" not in result:
+            continue
+
         for detection in result["plates"]:
             if "car" in detection:
                 car_confidence = detection["car"]["confidence"]

@@ -8,7 +8,7 @@ import ultimateAlprSdk
 
 # https://www.doubango.org/SDKs/anpr/docs/Configuration_options.html
 JSON_CONFIG = {
-    "debug_level": "info",
+    "debug_level": "warn",
     "debug_write_input_image_enabled": False,
     "debug_internal_data_path": ".",
     
@@ -29,6 +29,7 @@ JSON_CONFIG = {
     "pyramidal_search_min_image_size_inpixels": 800,
     
     "recogn_rectify_enabled": True,
+    "recogn_rectify_polarity": "dark_on_bright",
     "recogn_minscore": 0.3,
     "recogn_score_type": "min"
 }

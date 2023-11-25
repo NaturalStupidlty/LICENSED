@@ -179,7 +179,6 @@ if __name__ == "__main__":
 
     output_video.release()
     capture.release()
-    cv2.destroyAllWindows()
 
     # DeInit
     ultimateAlprSdk.UltAlprSdkEngine_deInit()

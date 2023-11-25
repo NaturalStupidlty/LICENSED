@@ -138,7 +138,8 @@ if __name__ == "__main__":
         result = json.loads(result.json())
         car_threshold = 0.5
 
-        for plate in result["plates"]:
+        for plate in result["plates"][0]:
+            print(plate)
             car_confidence = plate['car']['confidence']
             if car_confidence > car_threshold:
                 bounding_box = plate['car']['warpedBox']

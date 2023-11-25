@@ -41,7 +41,6 @@ IMAGE_TYPES_MAPPING = {
 
 
 def checkResult(operation, result):
-    print(type(result))
     if not result.isOK():
         print(operation + ": FAILED -> " + result.phrase())
         assert False
@@ -136,7 +135,8 @@ if __name__ == "__main__":
         )
         checkResult("Process", result)
 
-        print(result.json())
+        bounding_boxes = result.json()["plates"]
+        break
 
     # DeInit
     ultimateAlprSdk.UltAlprSdkEngine_deInit()

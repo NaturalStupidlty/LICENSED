@@ -138,14 +138,15 @@ if __name__ == "__main__":
         result = json.loads(result.json())
         car_threshold = 0.5
 
-        print(result["plates"][0])
-        for car in result["plates"][0].values():
-
-            car_confidence = car['confidence']
+        for car in result["plates"]:
+            car_confidence = car["car"]["confidence"]
             if car_confidence > car_threshold:
-                bounding_box = car['warpedBox']
+                bounding_box = car["car"]['warpedBox']
                 bounding_box = [int(coordinate) for coordinate in bounding_box]
-                text = car['text']
+                text = car["car"]['text']
+
+                print(text)
+                print(bounding_box)
 
                 # Draw the bounding box
                 cv2.polylines(frame, [bounding_box], True, (0, 255, 0), 2)

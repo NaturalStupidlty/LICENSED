@@ -148,6 +148,7 @@ if __name__ == "__main__":
 
         for detection in result["plates"]:
             car = detection["car"] if "car" in detection else detection
+            print(car)
             if car["confidence"] > car_threshold:
                 warped_box_coords = car['warpedBox']
                 bounding_box = [
@@ -156,9 +157,7 @@ if __name__ == "__main__":
                 ]
                 text = detection['text'][:-2]
 
-                # Draw the bounding box
                 cv2.polylines(frame, [numpy.array(bounding_box, numpy.int32)], True, (0, 255, 0), 2)
-                # Draw the text
                 cv2.putText(frame,
                             text,
                             (bounding_box[0][0], bounding_box[0][1] - 10),

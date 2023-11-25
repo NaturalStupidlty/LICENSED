@@ -152,13 +152,11 @@ if __name__ == "__main__":
                 box_coordinates = detection["car"]["warpedBox"]
                 plate_text = detection['text']
             else:
+                print(detection)
                 car_confidence = detection["confidence"]
                 box_coordinates = detection["box"]
                 plate_text = detection['text']
 
-            print("Car confidence: ", car_confidence
-                  , "Box coordinates: ", box_coordinates
-                    , "Plate text: ", plate_text)
             if car_confidence > car_threshold:
                 bounding_box = [
                     [int(box_coordinates[i]), int(box_coordinates[i + 1])]

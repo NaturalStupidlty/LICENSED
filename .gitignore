@@ -52,3 +52,6 @@ My Advisor Results*
 
 /assets/videos/
 /assets/images/
+
+/venv/*
+/binaries/linux/x86_64/_ultimateAlprSdk.so

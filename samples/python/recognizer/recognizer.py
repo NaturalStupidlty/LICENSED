@@ -153,7 +153,7 @@ if __name__ == "__main__":
                 plate_text = detection['text']
             else:
                 car_confidence = 0
-                box_coordinates = detection["box"]
+                box_coordinates = detection["warpedBox"]
                 plate_text = detection['text']
 
             if car_confidence > car_threshold:

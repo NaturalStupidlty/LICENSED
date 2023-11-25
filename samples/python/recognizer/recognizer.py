@@ -117,7 +117,7 @@ if __name__ == "__main__":
     # Initialize the engine
     ultimateAlprSdk.UltAlprSdkEngine_init(json.dumps(JSON_CONFIG))
 
-    save_path = args.assets + "/videos/output.mp4"
+    save_path = args.assets + "/output.mp4"
     output_video = cv2.VideoWriter(
         save_path,
         cv2.VideoWriter_fourcc(*'mp4v'),
@@ -164,11 +164,12 @@ if __name__ == "__main__":
                     [int(box_coordinates[i]), int(box_coordinates[i + 1])]
                     for i in range(0, len(box_coordinates), 2)
                 ]
-                text = plate_text
+
+                print(plate_text)
 
                 cv2.polylines(frame, [numpy.array(bounding_box, numpy.int32)], True, (0, 255, 0), 2)
                 cv2.putText(frame,
-                            text,
+                            plate_text,
                             (bounding_box[0][0], bounding_box[0][1] - 10),
                             cv2.FONT_HERSHEY_SIMPLEX,
                             1,

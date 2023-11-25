@@ -135,7 +135,7 @@ if __name__ == "__main__":
         )
         #checkResult("Process", result)
 
-        bounding_boxes = result.json()["plates"]
+        bounding_boxes = result.plates
         break
 
     # DeInit

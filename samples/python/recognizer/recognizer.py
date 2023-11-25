@@ -1,5 +1,4 @@
 import cv2
-import numpy
 import argparse
 import json
 import os.path
@@ -150,7 +149,7 @@ if __name__ == "__main__":
             car_confidence = car["car"]["confidence"]
             if car_confidence > car_threshold:
                 bounding_box = car["car"]['warpedBox']
-                bounding_box = numpy.array([int(coordinate) for coordinate in bounding_box])
+                bounding_box = [[int(bounding_box[i]), int(bounding_box[i + 1])] for i in range(0, len(bounding_box), 2)]
                 text = car['text'][:-2]
 
                 print(bounding_box)

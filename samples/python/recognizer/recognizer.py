@@ -133,7 +133,7 @@ if __name__ == "__main__":
             0, # stride
             1,
         )
-        checkResult("Process", result)
+        #checkResult("Process", result)
 
         bounding_boxes = result.json()["plates"]
         break

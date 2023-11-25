@@ -135,8 +135,9 @@ if __name__ == "__main__":
         )
         #checkResult("Process", result)
 
-        bounding_boxes = result.json()
-        print(type(bounding_boxes))
+        result = json.loads(result.json())
+
+        print(result["plates"])
         break
 
     # DeInit

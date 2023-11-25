@@ -164,7 +164,7 @@ if __name__ == "__main__":
                     [int(box_coordinates[i]), int(box_coordinates[i + 1])]
                     for i in range(0, len(box_coordinates), 2)
                 ]
-                text = plate_text[:-2]
+                text = plate_text
 
                 cv2.polylines(frame, [numpy.array(bounding_box, numpy.int32)], True, (0, 255, 0), 2)
                 cv2.putText(frame,

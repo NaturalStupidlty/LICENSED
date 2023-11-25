@@ -147,10 +147,13 @@ if __name__ == "__main__":
         car_threshold = 0.5
 
         for car in result["plates"]:
-            car_confidence = car["car"]["confidence"]
-            if car_confidence > car_threshold:
-                bounding_box = car["car"]['warpedBox']
-                bounding_box = [[int(bounding_box[i]), int(bounding_box[i + 1])] for i in range(0, len(bounding_box), 2)]
+            print(car)
+            if car["car"]["confidence"] > car_threshold:
+                warped_box_coords = car["car"]['warpedBox']
+                bounding_box = [
+                    [int(warped_box_coords[i]), int(warped_box_coords[i + 1])]
+                    for i in range(0, len(warped_box_coords), 2)
+                ]
                 text = car['text'][:-2]
 
                 # Draw the bounding box

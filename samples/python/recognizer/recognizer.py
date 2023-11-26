@@ -14,10 +14,12 @@ JSON_CONFIG = {
     
     "num_threads": -1,
     "gpgpu_enabled": True,
+    "openvino_enabled": True,
+    "openvino_device": "CPU",
     "max_latency": -1,
 
     "klass_vcr_gamma": 1.5,
-    "klass_lpci_enabled": True,
+    "klass_lpci_enabled": False,
     
     "detect_roi": [0, 0, 0, 0],
     "detect_minscore": 0.1,

@@ -17,6 +17,7 @@ JSON_CONFIG = {
     "max_latency": -1,
 
     "klass_vcr_gamma": 1.5,
+    "klass_lpci_enabled": True,
     
     "detect_roi": [0, 0, 0, 0],
     "detect_minscore": 0.1,
